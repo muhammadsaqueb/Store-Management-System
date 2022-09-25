@@ -1,0 +1,30 @@
+1. TABLE PRODUCT.
+
+create table product(product_id char(4) Primary Key,
+PName varchar(20) not null,
+brand varchar(10),
+Product_for varchar(6)
+season varchar(6)
+rate int(5) not null);
+
+2. TABLE PURCHASE.
+
+create table purchase(purchase_id char(6) not null,
+item_id char(4) references product(product_id),
+no_of_items int(3) not null,
+amount int(7),
+Purchase_date date);
+
+3. TABLE STOCK
+
+create table stock(item_id char(4) references product(product_id),
+Instock int(3) not null,
+status varchar(10) not null);
+
+4. TABLE SALES
+
+create table sales(sale_id char(6) Primary key,
+item_id char(4) references product(product_id),
+no_of_item_sold int(3) not null,
+amount int(7) not null,
+date_of_sale date);
